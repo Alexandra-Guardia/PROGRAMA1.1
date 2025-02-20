@@ -1,18 +1,31 @@
-*/config/development
-*/logs/log-*.php
-!*/logs/index.html
-*/cache/*
-!system/cache/*
-!*/cache/index.html
-!*/cache/.htaccess
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4">Calculadora de IMC</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="peso" class="form-label">Peso (kg):</label>
+            <input type="number" step="0.01" id="peso" name="peso" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="estatura" class="form-label">Estatura (m):</label>
+            <input type="number" step="0.01" id="estatura" name="estatura" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular IMC</button>
+    </form>
 
-user_guide_src/build/*
-user_guide_src/cilexer/build/*
-user_guide_src/cilexer/dist/*
-user_guide_src/cilexer/pycilexer.egg-info/*
-
-#codeigniter 3
-application/logs/*
-!application/logs/index.html
-!application/logs/.htaccess
-/vendor/
+    {% if mensaje %}
+        <div class="alert alert-info mt-4">{{ mensaje }}</div>
+    {% endif %}
+</body>
+</html>
